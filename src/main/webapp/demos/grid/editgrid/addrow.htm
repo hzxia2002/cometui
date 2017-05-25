@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="../../../js/jui/skins/Aqua/css/jui-all.css" rel="stylesheet" type="text/css"/>
+    <script src="../../../js/jquery/jquery-1.7.2.js" type="text/javascript"></script>
+    <script src="../../../js/json2.js" type="text/javascript"></script>
+
+    <script src="../../../js/jui/js/jui-all.js" type="text/javascript"></script>
+    <script src="../../../js/jui/js/plugins/juiceGrid.js" type="text/javascript"></script>
+    <script src="../../../js/jui/js/plugins/juiceComboBox.js" type="text/javascript"></script>
+    <script src="../EmployeeData.js" type="text/javascript"></script>
+    <!--<script src="../DepartmentData.js" type="text/javascript"></script>-->
+    <script src="../CustomersData.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var manager, g;
+        //        var sexData = [
+//            { Sex:1, text:'男' },
+//            { Sex:2, text:'女'}
+//        ];
+        $(f_initGrid);
+        function f_initGrid() {
+            $.jui.parse();
+
+            g = manager = $.jui.get("maingrid2");
+
+//                    $("#maingrid2").juiceGrid({
+////                onSelectRow:function (rowdata, rowindex) {
+////                    $("#txtrowindex").val(rowindex);
+////                }
+//            });
+//            g.showAddButton(true);
+//            g.showAddButton(false);
+        }
+
+        function onSelectRow(rowdata, rowindex) {
+            $("#txtrowindex").val(rowindex);
+        }
+
+        function deptRender(item) {
+//            alert(item["CompanyName"]);
+            return item["CompanyName"] || item["CustomerID"];
+        }
+
+        function deleteRow() {
+            manager.deleteSelectedRow();
+        }
+        var newrowid = 100;
+        function addNewRow() {
+            var row = manager.getSelectedRow();
+            //参数1:rowdata(非必填)
+            //参数2:插入的位置 Row Data 
+            //参数3:之前或者之后(非必填)
+            manager.addDataRows([
+                {
+                    DepartmentID:1001,
+                    CompanyName:'宝山钢铁股份有限公司(本部)',
+                    RealName:"分为" + newrowid,
+                    ID:newrowid++,
+                    Sex:1,
+                    Age:25,
+                    IncomeDay:new Date('2010-08-09'),
+                    Phone:"13888888888",
+                    Address:"上海市宝山区"
+                }
+            ], row, document.getElementById("chkbefore").checked);
+        }
+        function getSelected() {
+            var row = manager.getSelectedRow();
+            if (!row) {
+                alert('请选择行');
+                return;
+            }
+            alert(JSON.stringify(row));
+        }
+        function getData() {
+            var data = manager.getData();
+            alert(JSON.stringify(data));
+        }
+
+        function checkData() {
+            manager.checkData();
+        }
+
+//        function sexRender(item) {
+//            if (parseInt(item.Sex) == 1) return '男';
+//            return '女';
+//        }
+
+        function setRowData(oldRecord, newRecord) {
+//            manager.updateRow(oldRecord, {"RealName":newRecord["ContactName"]});
+        }
+
+        function endEdit(){
+            manager.endEdit();
+        }
+
+        function getData(options,rowdata){
+
+        }
+        //        function getValue1(){
+        //            alert(this.data);
+        //        }
+    </script>
+</head>
+<body style="padding:10px">
+
+<div class="l-clear"></div>
+<a class="l-button" style="width:120px; " onclick="deleteRow()">删除选择的行</a>
+<a class="l-button" style="width:100px;  margin-left:10px;" onclick="addNewRow()">添加行</a>
+<a class="l-button" style="width:140px;  margin-left:10px;" onclick="getSelected()">获取选中的值(选择行)</a>
+<a class="l-button" style="width:100px;  margin-left:10px;" onclick="getData()">获取当前的值</a>
+<a class="l-button" style="width:100px;  margin-left:10px;" onclick="checkData()">空值校验</a>
+<!--<div>-->
+    <!--是否之前：-->
+    <!--<input type="checkbox" id="chkbefore"/>-->
+<!--</div>-->
+<!--<div id="maingrid" style="margin-top:20px;display: none" ></div> <br />-->
+<!--<br />-->
+<br/>
+<br/>
+<div id="maingrid2" checkbox="true" rownumbers="true" frozen="false" showHeadMenu="false" url="data/EmployeeData.json" height="400" width="100%"  fixedCellHeight="false"
+     enabledEdit="true" colDraggable="true" title="列表" showAddButton="true" onSelectRow="onSelectRow" class="jui-grid" >
+    <div elementType="columns">
+        <div name="ID" width="70" type="int"  display=" 主键"></div>
+        <div name="RealName" width="2%" type="" display=" 名字" allowBlank="false">
+            <input elementType="editor" class="jui-text"/>
+        </div>
+        <div name="Sex" width="10%" type="int" display="性别"  >
+            <input elementType="editor"  url="data/sexData.json" class="jui-select" valueField='Sex'
+                   textField='text'/>
+        </div>
+        <div name="Age" width="10%"  display="年龄">
+            <!--<input elementType="editor" class="jui-int"/>-->
+        </div>
+        <div name="Salary" width="10%" type="int" display="工资" decimalFormat="￥000,000.00">
+            <input elementType="editor" class="jui-int"/>
+        </div>
+        <div display="入职日期" name="IncomeDay" type="date" width="15%" dateFormat="yyyy年MM月dd日">
+            <input elementType="editor" class="jui-date"/>
+        </div>
+        <div name="DepartmentID" width="15%" display="部门" render="deptRender">
+            <input elementType="editor" class="jui-grid" refType="grid" refId="grid1" valueField="CustomerID"
+                   textField="CompanyName" checkbox="false" selectBoxWidth="540" selectBoxHeight=" 245" gridFilter="true" onEndEdit="endEdit"
+                   onAfterEditor="setRowData" onBeforeEditor="getData" checkbox="true"/>
+            <!--<input elementType="editor"  refType="grid" refId="grid1"  valueField= 'CustomerID' textField="CustomerID" class="jui-grid" checkbox="false" selectBoxWidth="500" selectBoxHeight=" 240" />-->
+            <!--<input  class="jui-select" data="DepartmentList"  valueColumnName= 'DepartmentID' displayColumnName= 'DepartmentName'/>-->
+        </div>
+        <div name="Address" width="20%" align="left" display=" 地址">
+            <input class="jui-text"/>
+        </div>
+    </div>
+</div>
+<div id="treeId" url="../../tree/tree.json" style="display: none"></div>
+<div id="grid1" url="data/data.jsp" pageSize="10"  showAddButton="false" checkbox="true" >
+    <div elementType="columns">
+        <div name="CustomerID" width="50" type="int" frozen="true" display="编号" align="left"></div>
+        <div name="CompanyName" width="340" display="公司名" allowBlank="false">
+        </div>
+        <div name="ContactName" width="100" display="联系人">
+        </div>
+        <!--<div name="Phone" width="50" type="int"  display="电话" >-->
+        <!--</div>-->
+        <!--<div name="City" width="50"  display="城市" >-->
+        <!--</div>-->
+        <!--<div name="Country" width="50" align="left"   display=" 国家" >-->
+    </div>
+</div>
+</div>
+<br/>
+
+</body>
+</html>

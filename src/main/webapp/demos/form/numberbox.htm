@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../../js/jui/skins/Aqua/css/jui-all.css?332" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+    </style>
+    <script src="../../js/jquery/jquery-1.7.2.js" type="text/javascript"></script>
+    <!--<script src="../../js/jui/js/core/base.js" type="text/javascript"></script>-->
+    <script src="../../js/jui/js/jui-all.js" type="text/javascript"></script>
+    <script src="../../js/jui/js/plugins/juiceNumberBox.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var g ;
+        $(function () {
+            g = $("#number1").juiceNumberBox({ nullText: '不能为空',initValue:"12034.90989",groupSeparator:",",prefix:"￥",precision:5});
+            $(".jui-numberbox").juiceNumberBox();
+        });
+
+        function getValue() {
+            alert($.jui.get("number1").getValue());
+        }
+    </script>
+</head>
+<body style="padding:10px">
+<table>
+    <tr>
+        <td>Number in the United States</td>
+        <td>
+            <input id="number1" class="jui-numberbox" value="1234567.89" precision="2" groupSeparator="," />
+        </td>
+        <td>
+            <a class="l-button"  onclick="javascript:getValue();">getValue</a>
+        </td>
+    </tr>
+    <tr>
+        <td>Number in France</td>
+        <td><input class="jui-numberbox" id="number2" value="1234567.89" precision="2" groupSeparator=" " suffix="$"/></td>
+    </tr>
+    <tr>
+        <td>Currency:USD</td>
+        <td><input class="jui-numberbox" value="1234567.89" precision="2" groupSeparator=","  prefix="$"/></td>
+    </tr>
+    <tr>
+        <td>Currency:EUR</td>
+        <td><input class="jui-numberbox" value="1234567.89" precision="2" groupSeparator=","  prefix="€ "/></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input class="jui-numberbox" value="1234567.89" precision="2" groupSeparator=" "  suffix=" €"/></td>
+    </tr>
+</table>
+
+</body>
+</html>

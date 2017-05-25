@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <link href="../../js/jui/skins/Aqua/css/jui-all.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+    </style>
+    <script src="../../js/jquery/jquery-1.7.2.js" type="text/javascript"></script>
+    <!--<script src="../../js/jui/js/core/base.js" type="text/javascript"></script>-->
+    <!--<script src="../../js/jui/js/plugins/juiceComboBox.js" type="text/javascript"></script>-->
+    <!--<script src="../../js/jui/js/plugins/juiceResizable.js" type="text/javascript"></script> -->
+    <script src="../../js/jui/js/jui-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function ()
+        {
+//            var proData =
+//            [{ id: 1, text: '广东' },
+//            { id: 2, text: '福建'}];
+            $("#txtPro").juiceComboBox({
+//                data: proData, isMultiSelect: false,
+//                onBeforeSelect: function (newvalue)
+//                {
+//                    alert('要选择的是' + newvalue);
+//                    return confirm('onBeforeSelect事件可以阻止选择，是否继续');
+//                },
+//                onSelected: function (newvalue)
+//                {
+//                    alert('选择的是' + newvalue);
+//                }
+            });
+
+        });
+        function onBefS(newvalue){
+                    alert('要选择的是' + newvalue);
+                    return confirm('onBeforeSelect事件可以阻止选择，是否继续');
+                };
+        function onSel(newvalue) {
+                    alert('选择的是' + newvalue);}
+
+
+    </script>
+</head>
+<body style="padding:10px"> 
+   <input type="text" id="txtPro" url="../comboBox/data/comboBoxEven-data1.json" isMultiSelect="false" onBeforeSelect="onBefS" onSelected="onSel"/>
+   <br /> 
+     
+ 
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <link href="../../../js/jui/skins/Aqua/css/jui-all.css" rel="stylesheet" type="text/css" />
+    <script src="../../../js/jquery/jquery-1.7.2.js" type="text/javascript"></script>
+    <!--<script src="../../../js/jui/js/core/base.js" type="text/javascript"></script> -->
+    <!--<script src="../../../js/jui/js/plugins/juiceGrid.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceMenu.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceResizable.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceDrag.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceMenu.js" type="text/javascript"></script>-->
+    <script src="../../../js/jui/js/jui-all.js" type="text/javascript"></script>
+    <script src="../CustomersData.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var g;
+        $(function ()
+        {
+            $.jui.parse();
+            g = $.jui.get("maingrid4") ;
+//            g = $("#maingrid4").juiceGrid({
+//                columns: [
+//                {display: '主键', name: 'CustomerID', align: 'left', width: 120 } ,
+//                { display: '公司名', name: 'CompanyName', minWidth: 60 },
+//                { display: '联系名1', name: 'ContactName', width: 100, align: 'left', frozen: true },
+//                { display: '联系名2', name: 'ContactName', width: 200, align: 'left' },
+//                { display: '联系名3', name: 'ContactName', width: 200, align: 'left' },
+//                { display: '联系名4', name: 'ContactName', width: 200, align: 'left', frozen: true },
+//                { display: '城市', name: 'City' }
+//                ], data: CustomersData,  checkbox: true,
+//                pageSize: 20, sortName: 'CustomerID',
+//                width: '98%', height: '98%', rownumbers:true
+//            });
+            $("#pageloading").hide();
+        });
+    </script>
+</head>
+<body style="padding: 4px; overflow: hidden;">
+    <div class="l-loading" style="display: block" id="pageloading">
+    </div> 
+    <div id="maingrid4" style="margin: 0; padding: 0" data="CustomersData" checkbox="true" pageSize="20" sortName="CustomerID"
+            width="98%" height="98%" rownumbers="true" class="jui-grid">
+        <div elementType="columns">
+            <div display="主键" name="CustomerID"  align="left" width="120"></div>
+            <div display="公司名" name="CompanyName"  minWidth="60"></div>
+            <div display="联系名1" name="ContactName"  width="150" align="left" frozen="true"></div>
+            <div display="联系名2" name="ContactName"  width="150" align="left" ></div>
+            <div display="联系名3" name="ContactName"  width="150" align="left" ></div>
+            <div display="联系名4" name="ContactName"  width="150" align="left" frozen="true"></div>
+            <div display="城市"    name="City"></div>
+        </div>
+    </div>
+    <div style="display: none;">
+    </div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title> 
+    <link href="../../js/jui/skins/Aqua/css/jui-all.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/jquery/jquery-1.7.2.js" type="text/javascript"></script>
+    <!--<script src="../../js/jui/js/core/base.js" type="text/javascript"></script>-->
+    <!--<script src="../../js/jui/js/plugins/juiceButton.js" type="text/javascript"></script>-->
+    <script src="../../js/jui/js/jui-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var manager;
+        var manager2;
+        $(function ()
+        {
+            manager = $("#btn").juiceButton({
+                click: function ()
+                {
+                    alert('111');
+                }
+            });
+
+            manager.setValue("按钮");
+
+            manager2 = $("#btn2").juiceButton({
+                disabled: true
+            });
+
+            manager2.setValue("失效按钮");
+
+            $("#btnSet").bind('click', function ()
+            {
+                manager.setValue('设置值');
+            });
+            $("#btnGet").bind('click', function ()
+            {
+                alert(manager.getValue());
+            });
+            $("#btnDisabled").bind('click', function ()
+            {
+                manager.setDisabled();
+            });
+            $("#btnEnabled").bind('click', function ()
+            {
+                manager.setEnabled();
+            });
+
+            manager3 = $("#btn3").juiceButton({
+                click: function ()
+                {
+                    alert('111');
+                }
+            });
+
+            manager3.setValue("Div button Info");
+        }); 
+    </script>
+
+</head>
+<body style="padding:10px">
+    <div id="btn"></div>
+    <div id="btn2"></div>
+    <input type="button" id="btnSet" value="设置值" />
+    <input type="button" id="btnGet" value="获取值" />
+    <input type="button" id="btnDisabled" value="设置只读" />
+    <input type="button" id="btnEnabled" value="取消只读" />
+    <div style="display:none;"></div>
+    <p>&nbsp;</p>
+    <input type="button" class="c-primary" value="Primary" />
+    <input type="button" class="c-primary l-button-disabled" value="Primary disabled" />
+    <p>&nbsp;</p>
+    <input type="button" class="c-info" value="Info" />
+    <input type="button" class="c-info l-button-disabled" value="Info disabled" />
+
+    <p>&nbsp;</p>
+    <input type="button" class="c-success" value="Info" />
+    <input type="button" class="c-success l-button-disabled" value="Info disabled" />
+    <div id="btn3" class="c-success"></div>
+
+    <p>&nbsp;</p>
+    <input type="button" class="c-warning" value="Warning" />
+
+    <p>&nbsp;</p>
+    <input type="button" class="c-danger" value="Danger" />
+
+    <p>&nbsp;</p>
+    <input type="button" class="c-inverse" value="Inverse" />
+
+    <p>&nbsp;</p>
+    <input type="button" class="c-pink" value="Pink" />
+
+    <p>&nbsp;</p>
+    <input type="button" class="c-purple" value="Purple" />
+
+    <p>&nbsp;</p>
+    <input type="button" class="c-purple l-button-lg" value="Large Size" />
+    <input type="button" class="c-purple" value="Default" />
+    <input type="button" class="c-purple l-button-sm" value="Small" />
+    <input type="button" class="c-purple l-button-xs" value="Mini" />
+    <input type="button" class="c-purple l-button-minier" value="Minier" />
+
+    <p>&nbsp;</p>
+    <button><span class="glyphicon glyphicon-asterisk"></span> Test Icon</button>
+    <button class="c-pink"> Test Icon <span class="glyphicon glyphicon-thumbs-up"></span></button>
+    <button class="c-inverse l-button-minier"> Test Icon <span class="glyphicon glyphicon-thumbs-up"></span></button>
+    <button class="c-danger l-button-lg"> Test Icon <span class="glyphicon glyphicon glyphicon-picture"></span></button>
+
+</body>
+</html>

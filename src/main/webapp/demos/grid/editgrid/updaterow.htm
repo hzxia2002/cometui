@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <link href="../../../js/jui/skins/Aqua/css/jui-all.css" rel="stylesheet" type="text/css" />
+    <script src="../../../js/jquery/jquery-1.7.2.js" type="text/javascript"></script>
+    <script src="../../../js/json2.js" type="text/javascript"></script>
+    <!--<script src="../../../js/jui/js/core/base.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceDialog.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceTextBox.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceCheckBox.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceComboBox.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceGrid.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceDateEditor.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceSpinner.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceMenu.js" type="text/javascript"></script>-->
+    <script src="../../../js/jui/js/jui-all.js" type="text/javascript"></script>
+    <script src="../EmployeeData.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        var data = [{
+            UnitPrice: 10,
+            Quantity: 2 
+        },{
+            UnitPrice: 10,
+            Quantity: 4 
+        }]; 
+
+        var manager = null;
+        $(function()
+        {
+            f_initGrid();
+        });
+        function f_initGrid()
+        {
+            $.jui.parse();
+            $("#txtQuantity").juiceSpinner({ type: 'int' });
+            window['g'] = 
+            manager = $.jui.get("maingrid")
+//            manager = $("#maingrid").juiceGrid({
+//                data: { Rows: data }
+//            });
+            
+        }
+        function f_onAfterEdit(e)
+        {
+            manager.updateCell('Price', e.record.UnitPrice * e.record.Quantity, e.record); 
+        }
+        function addNewRow()
+        { 
+            manager.addRow({
+                UnitPrice: 10, 
+                Quantity: 1 
+            });
+        } 
+        function updateRow()
+        {
+            var selected = manager.getSelected();
+            if (!selected) { alert('请选择行'); return; }
+            manager.updateRow(selected,{
+                UnitPrice: 40,
+                Quantity: parseInt($("#txtQuantity").val())
+            });
+        }
+        function getSelected()
+        { 
+            var row = manager.getSelectedRow();
+            if (!row) { alert('请选择行'); return; }
+            alert(JSON.stringify(row));
+        }
+        function fs(record)
+        {
+                    return record.UnitPrice * record.Quantity;
+        }
+    </script>
+</head>
+<body  style="padding:10px">
+   <a class="l-button" style="width:100px;" onclick="addNewRow()">添加行</a>
+   <a class="l-button" style="width:100px;  margin-left:10px;" onclick="updateRow()">更新行</a>
+   <a class="l-button" style="width:120px;  margin-left:10px;" onclick="getSelected()">获取选中的值(选择行)</a>
+   <div >数量： <input type="text" id="txtQuantity" value="10" /></div>
+    <div id="maingrid" style="margin-top:20px" usePager="false" width="310" data="{ Rows: data }" class="jui-grid">
+        <div elementType="columns">
+            <div display="单价" name="UnitPrice" width="100" type="float">
+                <input  elementType="editor" class="jui-float"/>
+            </div>
+            <div display="数量" name="Quantity" width="100" type="int">
+                <input  elementType="editor" class="jui-int"/>
+            </div>
+            <div display="金额" name="Price" width="100" type="float" render="fs">
+                <input  elementType="editor" class="jui-float"/>
+            </div>
+        </div>
+    </div> <br />
+       <br />
+
+  <div style="display:none;">
+  <!-- g data total ttt -->
+</div>
+</body>
+</html>

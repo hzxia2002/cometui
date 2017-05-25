@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <link href="../../js/jui/skins/Aqua/css/jui-all.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+    </style>
+    <script src="../../js/jquery/jquery-1.7.2.js" type="text/javascript"></script>
+    <!--<script src="../../js/jui/js/core/base.js" type="text/javascript"></script>-->
+    <!--<script src="../../js/jui/js/plugins/juiceResizable.js" type="text/javascript"></script>-->
+    <!--<script src="../../js/jui/js/plugins/juiceTree.js" type="text/javascript"></script>-->
+    <!--<script src="../../js/jui/js/plugins/juiceComboBox.js" type="text/javascript"></script>-->
+    <script src="../../js/jui/js/jui-all.js" type="text/javascript"></script>
+    <script src="../../js/jui/js/plugins/juiceComboBox.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function ()
+        {
+
+            $("#txt1").juiceComboBox({
+            width : 180,
+            selectBoxWidth: 200,
+            selectBoxHeight: 200, valueField: 'text', treeLeafOnly: false,
+            tree: { url: '../tree/data/tree.json',checkbox:true}
+        }); 
+
+
+            $("#txt2").juiceComboBox({
+                width: 180,
+                selectBoxWidth: 200,
+                selectBoxHeight: 200, valueField: 'text',treeLeafOnly:false,
+                tree: { url: '../tree/data/tree.json', checkbox: false }
+            });
+
+            $("#txt3").juiceComboBox({
+                width: 180,
+                selectBoxWidth: 200,
+                selectBoxHeight: 200, valueField: 'text',treeLeafOnly:true,
+                tree: { url: '../tree/data/tree.json', checkbox: false }
+            });
+
+            $("#txt4").juiceComboBox({
+//                textWidth:200,
+//                isMultiSelect:true,
+//                selectBoxWidth: 200
+// valueField: 'text' , tree: { url: '../tree/data/tree.json' }
+            });
+
+        }); 
+    </script>
+</head>
+<body style="padding:10px"> 
+带复选框： <br />
+   <input type="text" id="txt1"/>
+     <br />
+不带复选框： <br />
+   <input type="text" id="txt2"/>
+   <br />
+只选择叶节点： <br />
+   <input type="text" id="txt3"/><br />
+只选择叶节点(通过DIV实现树)： <br />
+<input type="text" id="txt4" refType="tree" refId="treeId" valueField= 'text' selectBoxHeight="200" isMultiSelect="true" textWidth="180" />
+<div id="treeId" url="../tree/data/tree.json" style="display: none"></div>
+
+ <div style="display:none;">
+ 
+</div>
+<script type="text/javascript">
+
+</script>
+</body>
+</html>
+
+

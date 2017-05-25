@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+        <link href="../../js/jui/skins/Aqua/css/jui-all.css" rel="stylesheet" type="text/css"  id="myTheme"/>
+         <!--<link href="../../js/jui/skins/Aqua/css/all.css" rel="stylesheet" type="text/css" />-->
+    <script src="../../js/jquery/jquery-1.7.2.js" type="text/javascript"></script>
+    <script src="../../js/jui/js/core/base.js" type="text/javascript"></script>
+    <script src="../../js/jui/js/plugins/juiceDrag.js" type="text/javascript"></script>
+    <script src="../../js/jui/js/plugins/juiceDialog.js" type="text/javascript"></script>
+    <!--<script src="../../js/jui/js/jui-all.js" type="text/javascript"></script>-->
+     <style type="text/css">
+        .l-case-title{font-weight:bold; margin-top:20px;margin-bottom:20px;}
+     </style>
+     <script type="text/javascript">
+         $(function() {
+         });
+         function f_alert(type)
+         {
+             $.juiceDialog.alert('提示内容，ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss最新提示！<font color="red">最新消息!</font>', '提示', type);
+         }
+         function f_alert2(type)
+         {
+             switch (type)
+             {
+                 case "success":
+                     $.juiceDialog.success('提示内容');
+                     break;
+                 case "warn":
+                     $.juiceDialog.warn('提示内容');
+                     break;
+                 case "question":
+                     $.juiceDialog.question('提示内容');
+                     break;
+                 case "error":
+                     $.juiceDialog.error('提示内容');
+                     break;
+                 case "confirm":
+                     $.juiceDialog.confirm('提示内容', function (yes)
+                     {
+                         alert(yes);
+                     });
+                     break;
+                 case "warning":
+                     $.juiceDialog.warning('提示内容', function (type)
+                     {
+                         alert(type);
+                     });
+                     break;
+                 case "prompt":
+                     $.juiceDialog.prompt('提示内容', function (yes, value)
+                     {
+                         if (yes) alert(value);
+                     }); 
+                     break;
+                 case "prompt2":
+                     $.juiceDialog.prompt('提示内容','初始化值', function (yes, value)
+                     {
+                         if (yes) alert(value);
+                     });
+                     break;
+                 case "prompt3":
+                     $.juiceDialog.prompt('提示内容', true, function (yes, value)
+                     {
+                         if (yes) alert(value);
+                     });
+                     break;
+                 case "prompt4":
+                     $.juiceDialog.prompt('提示内容', '初始化多选框值', true, function (yes, value)
+                     {
+                         if (yes) alert(value);
+                     });
+                     break;
+                 case "waitting":
+                     $.juiceDialog.waitting('正在保存中,请稍候...');
+                     setTimeout(function ()
+                     {
+                         $.juiceDialog.closeWaitting();
+                     }, 2000);
+                     break;
+                 case "waitting2":
+                     var manager = $.juiceDialog.waitting('正在保存中2,请稍候...');
+                     setTimeout(function ()
+                     {
+                         manager.close();
+                     }, 1000);
+                     break;
+             }
+         }
+     </script>
+</head>
+<body style="padding:10px;  padding-bottom:40px; ">
+<div class="l-case-title">实例一：$.juiceDialog.alert('提示内容', '提示', type); | $.juiceDialog.alert('提示内容', type);  </div>
+    
+    <input type="button" onclick="f_alert('success')" title="type:success" value="open success dialog" />
+
+    <input type="button" onclick="f_alert('error')" title="type:error" value="open error dialog" />
+
+    <input type="button" onclick="f_alert('warn')" title="type:warn" value="open warn dialog" />
+
+    <input type="button" onclick="f_alert('question')" title="type:question" value="open question dialog" />
+     
+     <input type="button" onclick="f_alert('none')" title="type:none" value="open dialog without image icon" />
+
+<div class="l-case-title">实例二：$.juiceDialog.success('提示内容')</div>
+
+
+ <input type="button" onclick="f_alert2('success')" value="open success dialog" />
+
+ <div  class="l-case-title">实例三：$.juiceDialog.warn('提示内容')</div>
+
+ <input type="button" onclick="f_alert2('warn')" value="open warn dialog" />
+
+  <div  class="l-case-title">实例四：$.juiceDialog.error('提示内容')</div>
+
+ <input type="button" onclick="f_alert2('error')" value="open error dialog" />
+
+   <div  class="l-case-title">实例五：$.juiceDialog.question('提示内容')</div>
+
+ <input type="button" onclick="f_alert2('question')"value="open question dialog" />
+
+
+    <div  class="l-case-title">实例六：$.juiceDialog.confirm('提示内容', function (yes)
+                     {
+                         alert(yes);
+                     });</div>
+
+ <input type="button" onclick="f_alert2('confirm')"value="open confirm dialog" />
+
+    <div  class="l-case-title">实例七：$.juiceDialog.warning('提示内容', function (type)
+                     {
+                         alert(type);
+                     });</div>
+
+ <input type="button" onclick="f_alert2('warning')"value="open warning dialog" />
+
+     <div  class="l-case-title">实例八：$.juiceDialog.prompt('提示内容', function (yes,value)
+                     {
+                         if(yes) alert(value);
+                     });</div>
+
+ <input type="button" onclick="f_alert2('prompt')"value="open prompt dialog" />
+
+      <div  class="l-case-title">实例九：$.juiceDialog.prompt('提示内容','初始化值', function (yes,value)
+                     {
+                         if(yes) alert(value);
+                     });</div>
+
+
+ <input type="button" onclick="f_alert2('prompt2')"value="open prompt dialog" />
+
+
+       <div  class="l-case-title">实例十：$.juiceDialog.prompt('提示内容',true, function (yes,value)
+                     {
+                         if(yes) alert(value);
+                     });</div>
+
+
+ <input type="button" onclick="f_alert2('prompt3')"value="open prompt dialog" />
+
+
+       <div  class="l-case-title">实例十一：$.juiceDialog.prompt('提示内容','初始化多选框值',true, function (yes,value)
+                     {
+                         if(yes) alert(value);
+                     });</div>
+
+ <input type="button" onclick="f_alert2('prompt4')"value="open prompt dialog" />
+
+
+       <div  class="l-case-title">实例十二：$.juiceDialog.waitting('正在保存中,请稍候...');
+                     setTimeout(function ()
+                     {
+                         $.juiceDialog.closeWaitting();
+                     }, 2000);</div>
+ <input type="button" onclick="f_alert2('waitting')"value="open waitting dialog" />
+
+
+       <div  class="l-case-title">实例十二：var manager = $.juiceDialog.waitting('正在保存中2,请稍候...');
+                     setTimeout(function ()
+                     {
+                         manager.close();
+                     }, 1000);</div>
+                      <input type="button" onclick="f_alert2('waitting2')"value="open waitting dialog" />
+
+
+
+
+      <div style="display:none;">
+      
+</div>
+</body>
+</html>
+    

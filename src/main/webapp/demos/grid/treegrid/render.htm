@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <link href="../../../js/jui/skins/Aqua/css/jui-all.css" rel="stylesheet"
+          type="text/css"/>
+    <script src="../../../js/jquery/jquery-1.7.2.js" type="text/javascript"></script>
+    <!--<script src="../../../js/jui/js/core/base.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceGrid.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceSpinner.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceResizable.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceMenu.js" type="text/javascript"></script>-->
+    <script src="../../../js/jui/js/jui-all.js" type="text/javascript"></script>
+    <script src="../TreeData.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        function f_renderAmount(rowdata, index, value) {
+            if (!this.hasChildren(rowdata)) {
+                return value;
+            }
+            else {
+                var children = this.getChildren(rowdata, true);
+                var sum = 0;
+                for (var i = 0, l = children.length; i < l; i++) {
+                    sum += children[i].amount || 0;
+                }
+                return sum;
+            }
+        }
+
+
+        var manager;
+        $(function () {
+            $.jui.parse();
+            manager = $.jui.get("maingrid");
+//            manager = $("#maingrid").juiceGrid({
+//                columns: [
+//                { display: '标示', name: 'id', width: 250, type: 'int', align: 'left' },
+//                { display: '金额', name: 'amount', width: 250, align: 'left', render: f_renderAmount, editor: { type: 'int'} }
+//                ],  pageSizeOptions: [5, 10, 15, 20],data: TreeData,
+//                width: '100%', height: '97%',
+//                alternatingRow: false, tree: { columnName: 'id' },
+//                enabledEdit: true
+//            });
+            manager.bind('beforeEdit', function (e) {
+                if (this.hasChildren(e.record)) return false;
+                else return true;
+            });
+        });
+        function getParent() {
+            var row = manager.getParent(manager.getSelectedRow());
+            alert(JSON.stringify(row));
+        }
+        function getSelected() {
+            var row = manager.getSelectedRow();
+            if (!row) {
+                alert('请选择行');
+                return;
+            }
+            alert(JSON.stringify(row));
+        }
+        function getData() {
+            var data = manager.getData();
+            alert(JSON.stringify(data));
+        }
+        function hasChildren() {
+            var row = manager.getSelectedRowObj();
+            alert(manager.hasChildren(row));
+        }
+        function isLeaf() {
+            var row = manager.getSelectedRowObj();
+            alert(manager.isLeaf(row));
+        }
+
+    </script>
+</head>
+<body style="padding: 4px">
+
+
+<div id="maingrid" pageSizeOptions="[5, 10, 15, 20]" data="TreeData" width="100%" height="97%" alternatingRow="false"
+     tree="{ columnName: 'id' }" enabledEdit="true" class="jui-grid">
+    <div elementType="columns">
+        <div display="标示" name="id" width="250" type="int" align="left"></div>
+        <div display="金额" name="amount" width="250" align="left" render="f_renderAmount">
+            <input elementType="editor" class="jui-int"/>
+        </div>
+    </div>
+</div>
+</body>
+</html>

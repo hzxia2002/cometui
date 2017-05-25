@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <link href="../../../js/jui/skins/Aqua/css/jui-all.css" rel="stylesheet"
+          type="text/css" />
+    <script src="../../../js/jquery/jquery-1.7.2.js" type="text/javascript"></script>
+    <!--<script src="../../../js/jui/js/core/base.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceGrid.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceMenu.js" type="text/javascript"></script>-->
+    <script src="../../../js/jui/js/jui-all.js" type="text/javascript"></script>
+    <script src="../ProductData.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        //扩展currency类型的格式化函数
+        $.juiceDefaults.Grid.formatters['currency'] = function (num, column) {
+            //num 当前的值
+            //column 列信息
+            if (!num) return "$0.00";
+            num = num.toString().replace(/\$|\,/g, '');
+            if (isNaN(num))
+                num = "0.00";
+            sign = (num == (num = Math.abs(num)));
+            num = Math.floor(num * 100 + 0.50000000001);
+            cents = num % 100;
+            num = Math.floor(num / 100).toString();
+            if (cents < 10)
+                cents = "0" + cents;
+            for (var i = 0; i < Math.floor((num.length - (1 + i)) / 3); i++)
+                num = num.substring(0, num.length - (4 * i + 3)) + ',' +
+                        num.substring(num.length - (4 * i + 3));
+            return  (column.prefix||"") + (((sign) ? '' : '-') + '' + num + '.' + cents);
+        };
+
+        $.juiceDefaults.Grid.formatters['percent'] = function (num, column) {
+            //num 当前的值
+            //column 列信息
+            if(!num||isNaN(num))  {
+                return  "0.00%";
+            }else{
+                return (100*num)+"%"
+            }
+        }
+        $(function ()
+        {
+//            $.jui.parse();
+//            $.jui.get("maingrid");
+            $("#maingrid").juiceGrid({
+                columns: [
+                    {display: '产品', columns:
+                        [
+                            { display: '主键', name: 'ProductID', type: 'int'},
+                            { display: '产品名', name: 'ProductName', align: 'left', width: 100 },
+                            { display: '单价', name: 'UnitPrice', align: 'right' ,type:'currency',prefix:"￥" }
+                        ]
+                     },
+                    { display: '仓库数量', name: 'UnitsInStock', align: 'right', type: 'float'}
+                ],   data: ProductData
+            });
+
+
+        });
+    </script>
+</head>
+<body>
+<div id="maingrid" data="ProductData" class="jui-grid">
+    <!--<div elementType="columns">-->
+        <!--<div display="产品">-->
+            <!--<div elementType="columns">-->
+                <!--<div display="主键" name="ProductID" type="int"></div>-->
+                <!--<div display="产品名" name="ProductName" align="left" width="100"></div>-->
+                <!--<div display="单价" name="UnitPrice" align="right" type="currency" prefix="$">-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div display="仓库数量" name="UnitsInStock" align="right" type="float">-->
+        <!--</div>-->
+    <!--</div>-->
+</div>
+<div style="display: none;">
+</div>
+</body>
+</html>

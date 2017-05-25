@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../../js/jquery/jquery-1.7.2.js" type="text/javascript"></script>
+    <link href="../../js/jui/skins/Aqua/css/jui-all.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/jui/js/core/base.js" type="text/javascript"></script>
+    <script src="../../js/jui/js/plugins/juiceTree.js" type="text/javascript"></script>
+    <script src="../../js/jui/js/plugins/juiceDrag.js" type="text/javascript"></script>
+    <!--<script src="../../js/jui/js/jui-all.js" type="text/javascript"></script>-->
+    <script type="text/javascript">
+        $(function ()
+        {
+            window['t'] = 
+            $("#tree1").juiceTree({
+                nodeDraggable: true
+//               , data: [
+//                { text: '节点1', children: [
+//                    { text: '节点1.1' },
+//                    { text: '节点1.2' },
+//                    { text: '节点1.3', children: [
+//                         { text: '节点1.3.1' },
+//                         { text: '节点1.3.2' }
+//                    ]
+//                    },
+//                    { text: '节点1.4' }
+//                 ]
+//                },
+//                { text: '节点2' },
+//                { text: '节点3' },
+//                { text: '节点4' }
+//            ]
+            });
+        });
+    </script>
+</head>
+<body style="padding: 10px">
+<div id="message"></div>
+    <div style="width: 200px; height: 300px; margin: 10px; float: left; border: 1px solid #ccc;
+        overflow: auto;">
+        <ul id="tree1" url="../tree/data/draggable-data.json" nodeDraggable="true" checkbox="true">
+        </ul>
+    </div>
+    <div style="display: none">
+    </div>
+</body>
+</html>

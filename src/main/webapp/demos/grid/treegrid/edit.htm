@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <link href="../../../js/jui/skins/Aqua/css/jui-all.css" rel="stylesheet" type="text/css" />
+ 
+    <script src="../../../js/jquery/jquery-1.7.2.js" type="text/javascript"></script>
+    <!--<script src="../../../js/jui/js/core/base.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceTextBox.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceGrid.js" type="text/javascript"></script> -->
+    <!--<script src="../../../js/jui/js/plugins/juiceResizable.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceMenu.js" type="text/javascript"></script>-->
+    <script src="../../../js/jui/js/jui-all.js" type="text/javascript"></script>
+    <script src="../TreeDeptData.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var manager;
+        $(function ()
+        {
+            $.jui.parse();
+            manager = $.jui.get("maingrid");
+//            manager = $("#maingrid").juiceGrid({
+//                columns: [
+//                { display: '部门名', name: 'name', width: 250, align: 'left' },
+//                { display: '部门标示', name: 'id', width: 250, type: 'int', align: 'left' },
+//                { display: '部门描述', name: 'remark', width: 250, align: 'left', editor: { type: 'string'} }
+//                ],
+                // pageSizeOptions: [5, 10, 15, 20],data: TreeDeptData,
+//                alternatingRow: false,
+//                enabledEdit: true,width: '100%', height: '97%',
+//                tree: { columnName: 'name' }
+//            });
+        });
+        function getParent()
+        {
+            var row = manager.getParent(manager.getSelectedRow());
+            alert(JSON.stringify(row));
+        }
+        function getSelected()
+        {
+            var row = manager.getSelectedRow();
+            if (!row) { alert('请选择行'); return; }
+            alert(JSON.stringify(row));
+        }
+        function getData()
+        {
+            var data = manager.getData();
+            alert(JSON.stringify(data));
+        }
+        function hasChildren()
+        {
+            var row = manager.getSelectedRowObj();
+            alert(manager.hasChildren(row));
+        }
+        function isLeaf()
+        {
+            var row = manager.getSelectedRowObj();
+            alert(manager.isLeaf(row));
+        }
+        
+    </script>
+</head>
+<body  style="padding:4px"> 
+<div> 
+       <a class="l-button" style="width:120px;float:left; margin-left:10px;" onclick="getParent()">获取父节点</a>
+
+
+     <a class="l-button" style="width:120px;float:left; margin-left:10px;" onclick="hasChildren()">是否有子节点</a>
+       
+        <a class="l-button" style="width:120px;float:left; margin-left:10px;" onclick="isLeaf()">是否叶节点节点</a>
+          
+   <a class="l-button" style="width:120px;float:left; margin-left:10px;" onclick="getSelected()">获取选中的值(选择行)</a>
+  
+   <a class="l-button" style="width:120px;float:left; margin-left:10px;" onclick="getData()">获取当前的值</a>
+
+   <div class="l-clear"></div>
+ 
+</div>
+    <div id="maingrid" pageSizeOptions="[5, 10, 15, 20]" data="TreeDeptData" enabledEdit="true" width="100%" height="97%"
+         alternatingRow="false" tree="{ columnName: 'name' }" class="jui-grid">
+         <div elementType="columns">
+            <div  display="部门名"  name="name" align="left" width="250"></div>
+            <div  display="部门标示"  name="id" width="250" type="int" align="left"></div>
+            <div  display="部门描述"  name="remark"  width="250" align="left">
+                <div elementType="editor" class="jui-string"></div>
+            </div>
+         </div>
+    </div> 
+<div>
+
+
+</div>
+
+</body>
+</html>

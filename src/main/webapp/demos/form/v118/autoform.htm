@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <link href="../../../js/jui/skins/Aqua/css/jui-all.css" rel="stylesheet" type="text/css" /> 
+    <link href="../../../js/jui/skins/Gray/css/all.css" rel="stylesheet" type="text/css" /> 
+    <script src="../../../js/jquery/jquery-1.7.2.js" type="text/javascript"></script>
+     <!--<script src="../../../js/jui/js/core/base.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceForm.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceDateEditor.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceComboBox.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceCheckBox.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceButton.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceDialog.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceRadio.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceSpinner.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceTextBox.js" type="text/javascript"></script>  -->
+    <script src="../../../js/jui/js/jui-all.js" type="text/javascript"></script>
+    <script type="text/javascript"> 
+        var groupicon = "../../../js/jui/skins/icons/communication.gif";
+        $(function ()
+        { 
+            //创建表单结构 
+            $("form").juiceForm({
+                inputWidth: 170, labelWidth: 90, space: 40,
+                fields: [
+                { name: "ProductID", type: "hidden" },
+                { display: "产品名称", name: "ProductName", newline: true, type: "text" , group: "基础信息", groupicon: groupicon}, 
+                { display: "供应商", name: "SupplierID", newline: false, type: "select", comboboxName: "CompanyName", options: { valueFieldID: "SupplierID" } },
+                { display: "类别 ", name: "CategoryID", newline: true, type: "select", comboboxName: "CategoryName", options: { valueFieldID: "CategoryID" }, width: 240 },
+                { display: "日期 ", name: "AddTime", newline: true, type: "date"  },
+                { display: "折扣", name: "QuantityPerUnit", newline: false, type: "number" },
+                { display: "单价", name: "UnitPrice", newline: true,  type: "number" },
+                { display: "库存量", name: "UnitsInStock", newline: true, type: "digits", group: "库存", groupicon: groupicon },
+                { display: "订购量", name: "UnitsOnOrder", newline: false, type: "digits" },
+                { display: "备注", name: "Remark", newline: true, type: "text" ,width:470 }
+                ]
+            }); 
+        });  
+    </script> 
+
+</head>
+<body style="padding:10px"> 
+    <form></form>
+</body>
+</html>

@@ -1,0 +1,1171 @@
+﻿/* 表单 */
+/* 表单 */
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+    border-radius: 0 !important;
+    color: #858585;
+    background-color: #FFF;
+    border: 1px solid #D5D5D5;
+    font-size: 12px;
+    font-family: inherit;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    -webkit-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+    text-indent: .33em;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"]{
+    height:28px;
+}
+textarea:hover,
+input[type="text"]:hover,
+input[type="password"]:hover,
+input[type="datetime"]:hover,
+input[type="datetime-local"]:hover,
+input[type="date"]:hover,
+input[type="month"]:hover,
+input[type="time"]:hover,
+input[type="week"]:hover,
+input[type="number"]:hover,
+input[type="email"]:hover,
+input[type="url"]:hover,
+input[type="search"]:hover,
+input[type="tel"]:hover,
+input[type="color"]:hover {
+    border-color: #b5b5b5;
+}
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #696969;
+    border-color: #F59942;
+    background-color: #FFF;
+    outline: none;
+}
+input::-webkit-input-placeholder,
+.form-control::-webkit-input-placeholder {
+    color: #C0C0C0;
+}
+input:-moz-placeholder,
+.form-control:-moz-placeholder {
+    color: #C0C0C0;
+    opacity: 1;
+}
+input::-moz-placeholder,
+.form-control::-moz-placeholder {
+    color: #C0C0C0;
+    opacity: 1;
+}
+input:-ms-input-placeholder,
+.form-control:-ms-input-placeholder {
+    color: #C0C0C0;
+}
+
+.l-form {
+    margin: 7px;
+}
+
+.l-form .l-group {
+    clear: both;
+    margin: 0;
+    height: 28px;
+    line-height: 28px;
+    font-weight: bold;
+    font-size: 12px;
+    color: #333;
+    border-bottom: solid 1px #ebebeb;
+    margin-bottom: 14px;
+    display: block;
+    position: relative;
+    clear: both;
+}
+
+.form-control,
+select {
+    border-radius: 0;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    color: #858585;
+    background-color: #FFF;
+    border: 1px solid #D5D5D5;
+}
+.form-control:focus,
+select:focus {
+    color: #696969;
+    border-color: #F59942;
+    background-color: #FFF;
+    outline: none;
+}
+textarea.form-control {
+    padding: 5px 9px;
+}
+select {
+    padding: 3px 4px;
+    height: 30px;
+}
+select.form-control {
+    padding: 4px 6px;
+}
+select[multiple],
+select.form-control[multiple] {
+    height: auto;
+}
+select.input-sm {
+    border-radius: 0;
+    padding: 2px 3px;
+}
+select.input-lg {
+    border-radius: 0;
+    padding: 6px 8px;
+}
+
+select option,
+select.form-control option {
+    padding: 3px 4px 5px;
+}
+select option:active,
+select.form-control option:active,
+select option:hover,
+select.form-control option:hover,
+select option:focus,
+select.form-control option:focus {
+    background-color: #EEE;
+    color: #444;
+}
+select option.no-option,
+select.form-control option.no-option {
+    padding: 1px 0;
+}
+input[disabled] {
+    color: #848484 !important;
+    background-color: #EEE !important;
+}
+input[disabled]:hover {
+    border-color: #D5D5D5 !important;
+}
+input[readonly] {
+    /*color: #939192;*/
+    /*background: #F5F5F5 !important;*/
+    cursor: default;
+}
+input[readonly]:hover {
+    border-color: #c3c3c3;
+}
+input[readonly]:focus {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-color: #AAA;
+    background-color: #F9F9F9;
+}
+
+input[type=checkbox].ace,
+input[type=radio].ace {
+    opacity: 0;
+    position: absolute;
+    z-index: 1;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    er; */
+}
+label input[type=checkbox].ace,
+label input[type=radio].ace {
+    z-index: -100 !important;
+    width: 1px !important;
+    height: 1px !important; */
+        nt; */
+position: absolute;, 1px, 1px)
+position: absolute;
+}
+input[type=checkbox].ace:checked,
+input[type=radio].ace:checked,
+input[type=checkbox].ace:focus,
+input[type=radio].ace:focus {
+    outline: none !important;
+}
+input[type=checkbox].ace + .lbl,
+input[type=radio].ace + .lbl {
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    line-height: 20px;
+    min-height: 18px;
+    min-width: 18px;
+    font-weight: normal;
+    cursor: pointer;
+}
+input[type=checkbox].ace + .lbl::before,
+input[type=radio].ace + .lbl::before {
+    cursor: pointer;
+    font-family: fontAwesome;
+    font-weight: normal;
+    font-size: 12px;
+    color: #FFF;
+    content: "\a0";
+    background-color: #FAFAFA;
+    border: 1px solid #C8C8C8;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    /*, inset 0px -15px 10px -12px rgba(0,0,0,0.05);*/
+    border-radius: 0;
+    display: inline-block;
+    text-align: center;
+    height: 16px;
+    line-height: 14px;
+    min-width: 16px;
+    margin-right: 1px;
+    position: relative;
+    top: -1px;
+}
+input[type=checkbox].ace:checked + .lbl::before,
+input[type=radio].ace:checked + .lbl::before {
+    display: inline-block;
+    content: '\f00c';
+    color: #32A3CE;
+    background-color: #F5F8FC;
+    border-color: #ADB8C0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+}
+input[type=checkbox].ace:hover + .lbl::before,
+input[type=radio].ace:hover + .lbl::before,
+input[type=checkbox].ace + .lbl:hover::before,
+input[type=radio].ace + .lbl:hover::before {
+    border-color: #FF893C;
+}
+input[type=checkbox].ace:focus + .lbl::before,
+input[type=radio].ace:focus + .lbl::before {
+    border-color: #F59942;
+}
+input[type=checkbox].ace:active + .lbl::before,
+input[type=radio].ace:active + .lbl::before,
+input[type=checkbox].ace:checked:active + .lbl::before,
+input[type=radio].ace:checked:active + .lbl::before {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+input[type=checkbox].ace.ace-checkbox-2 + .lbl::before,
+input[type=radio].ace.ace-checkbox-2 + .lbl::before {
+    box-shadow: none;
+}
+input[type=checkbox].ace.ace-checkbox-2:checked + .lbl::before,
+input[type=radio].ace.ace-checkbox-2:checked + .lbl::before {
+    background-color: #F9A021;
+    border-color: #F9A021;
+    color: #FFF;
+}
+input[type=checkbox].ace:disabled + .lbl::before,
+input[type=radio].ace:disabled + .lbl::before,
+input[type=checkbox].ace[disabled] + .lbl::before,
+input[type=radio].ace[disabled] + .lbl::before,
+input[type=checkbox].ace.disabled + .lbl::before,
+input[type=radio].ace.disabled + .lbl::before {
+    background-color: #DDD !important;
+    border-color: #CCC !important;
+    box-shadow: none !important;
+    color: #BBB;
+}
+.checkbox label input[type=checkbox].ace + .lbl,
+.radio label input[type=radio].ace + .lbl {
+    margin-left: -10px;
+}
+
+.l-form .l-group-hasicon {
+    padding-left: 30px;
+}
+
+.l-form .l-group-hasicon img {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    left: 6px;
+    top: 6px;
+}
+
+.l-form ul, .l-form li {
+    list-style: none;
+}
+
+.l-form ul {
+    clear: both;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.l-form li {
+    float: left;
+    overflow: hidden;
+    text-align: left;
+    line-height: 23px;
+    padding: 0;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.l-form li textarea {
+    height: 80px;
+}
+
+.l-hidden {
+    display: none;
+}
+
+/* -------------
+   * 多行文本框颜色 *
+* ------------- */
+.l-textarea {
+    border: 1px solid #b6b6b6;
+    border-radius: 3px 3px 3px 3px;
+    margin-left: -1px;
+    outline: none;
+    /*text-indent: .33em;*/
+    padding: 2px .33em;
+}
+
+.l-textarea:hover {
+    border-color: rgb(169, 169, 169);
+}
+
+.l-textarea-invalid {
+    border-color: red;
+}
+
+.l-textarea-invalid {
+    border-color: #FF7777;
+    background: #FFEEEE url(../image/common/invalid-line.gif) repeat-x bottom;
+}
+
+.l-textarea-invalid:hover, .l-textarea-invalid:focus {
+    border-color: #FF7777;
+}
+
+/* -------------
+   * 文本框/下拉框/日期框/调整器 *
+* ------------- */
+.l-text-wrapper {
+    position: relative;
+}
+
+/* 文本框、下来框、日期框、调整器都使用到这个 */
+.l-text {
+    /*border-radius: 3px 0px 0px 3px;*/
+    position: relative;
+
+    /*border:1px solid #AECAF0;*/
+    min-height: 1.65em;
+    line-height: 2em;
+    vertical-align: middle;
+    -moz-box-sizing: border-box;
+    text-align: center;
+    display: inline-block;
+    height: 28px;
+    width: 130px;
+    background: white;
+}
+
+/* 文本框 验证不通过 */
+.l-text-invalid {
+    border-color: #FF7777;
+    background: #FFEEEE url(../image/common/invalid-line.gif) repeat-x bottom;
+}
+
+.l-text-invalid .l-text-field {
+    background: none;
+}
+
+/*.l-text-spinner .l-text-field {
+    border-radius: 3px 0px 0px 3px;
+}*/
+
+/*只读时边框*/
+.l-text-disabled {
+    border-color: #C2C2C2;
+    background: #E0E0E0;
+}
+
+/*只读时文本框*/
+.l-text-disabled .l-text-field {
+    background: #E0E0E0;
+}
+
+/* 编辑状态 */
+.l-text-editing {
+
+}
+
+/* 表单文本框 input:text */
+.l-text-field {
+    border: 1px solid #b6b6b6;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    /*border:0; margin:0; outline:none;*/
+    height: 28px;
+    line-height: 28px;
+    border-radius: 3px 3px 3px 3px;
+    text-indent: .33em;
+}
+
+/*.l-text-combobox .l-text-field {
+    border-radius: 3px 0px 0px 3px;
+}
+*/
+/*.l-text-date .l-text-field {
+    border-radius: 3px 0px 0px 3px !important;
+}*/
+
+/* 表单文本框 内容为空时 */
+.l-text-field-null {
+    color: #C1C1C1 !important;
+}
+.l-text-combobox .l-trigger-hover .l-trigger-icon:hover{
+    color: orange;
+}
+.l-text-combobox .l-trigger .l-trigger-icon:before,.l-text-combobox .l-trigger-hover .l-trigger-icon:before,.l-text-combobox .l-trigger-pressed .l-trigger-icon:before{
+    content: "\f0d7";
+}
+
+/* 下拉框/日期/调整器 右侧那个可点击的区域 分别是普通、经过、按住状态 */
+.l-trigger, .l-trigger-hover, .l-trigger-pressed {
+   
+}
+
+.l-trigger {
+
+}
+
+.l-trigger-hover {
+}
+
+.l-trigger-pressed {
+    background-color: rgb(200, 193, 188);
+    border-color: rgb(200, 193, 188);
+    /*border:1px solid #EABE4E; */
+    /*background:#fedc75 url('../images/controls/bg-trigger-pressed.gif') repeat-x left;*/
+    /*height:18px;*/
+
+}
+
+/* 下拉框/日期 右侧那个可点击的区域里面的图标 */
+.l-trigger-icon {
+    position: absolute;
+    width: 28px;
+    right: -1px;
+    background-color: #eeeeee;
+    border-left: 1px solid #D5D5D5;
+    top: 1px;
+    bottom: -1px;
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+
+    padding-top: 7px;
+    font-size: 14px;
+    color: #555555;
+    text-align: center;
+}
+
+.l-text-date .l-trigger-icon::before{
+    content: "\f073";
+}
+
+/* -------------
+  * 调整器 *
+* ------------- */
+.l-spinner-up .l-spinner-icon, .l-spinner-down .l-spinner-icon {
+/*    overflow: hidden;
+    position: absolute;
+    right: 8px;
+    top: 52%;
+    margin-top: -3px;
+    width: 15px;
+    height: 6px;
+    background: no-repeat center top;
+    display: inline-block;*/
+}
+
+.l-spinner-down-over, .l-spinner-up-over {
+    background-color: #1B6AAA !important;
+    border-color: #428BCA !important;
+}
+
+
+
+.l-spinner-up .l-spinner-icon {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    margin-top: 1px;
+}
+
+.l-spinner-down .l-spinner-icon {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+/*    margin-top: 2px;
+    margin-right: 1px;*/
+}
+
+.l-spinner-up .l-spinner-icon:before{
+    content: "\f077";
+}
+
+.l-spinner-down .l-spinner-icon:before {
+    content: "\f078";
+}
+
+.l-spinner-up, .l-spinner-down {
+    width: 28px;
+    height: 15px;
+    line-height: 15px;
+    overflow: hidden;
+    display: block;
+    position: absolute;
+    right: -1px;
+    top: 1px;
+    background-color: #428BCA;
+    border-color: #428BCA;
+    border-width: 0px;
+    font-size: 12px;
+    color: #fff;
+
+}
+
+.l-spinner-down {
+    top: 50%;
+}
+
+.l-spinner-split {
+    overflow: hidden;
+    width: 30px;
+    height: 1px;
+    position: absolute;
+    right: -1px;
+    top: 50%;
+    z-index: 10;
+    background: #fff;
+}
+
+/* -------------
+   * 验证 *
+* ------------- */
+.l-verify-star {
+    color: Red;
+}
+
+/* -------------
+  * 下拉框 *
+* ------------- */
+.l-box-select-grid {
+    border-bottom: 1px solid #CCCCCC;
+    border-right: 1px solid #CCCCCC;
+}
+
+.l-box-select-grid thead td, .l-box-select-grid tr.l-table-headerow td {
+    background: #CCCCCC url('../images/grid/header-bg.png') repeat-x left;
+}
+
+/*.l-box-select-grid td{padding:0;margin:0;height:22px; line-height:22px; border-left:1px solid #A3C0E8;border-top:1px solid #A3C0E8; }*/
+.l-box-select-grid td {
+    padding: 0;
+    margin: 0;
+    height: 22px;
+    line-height: 22px;
+    font-size: 12px;
+    border-left: 1px solid #CCCCCC;
+}
+
+.l-box-select {
+    display: none;
+    position: absolute;
+    padding: 0px;
+    /*border:1px solid #AECAF0;*/
+    border: 1px solid #b6b6b6;
+    background: white;
+    overflow: hidden;
+    /*width:130px;*/
+    /*height:120px;*/
+    margin-top: 1px;
+    z-index: 9300;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.l-box-select-absolute {
+    margin-top: 0px;
+}
+
+.l-box-select-inner {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    color: #333;
+}
+
+.l-box-select-inner .l-box-select-table {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #E9E9E9;
+}
+
+.l-box-select .l-table-nocheckbox td:hover, .l-box-select .l-table-nocheckbox td.l-over {
+    background-color: #CDC8B1;
+    cursor: pointer;
+}
+
+.l-box-select .l-table-nocheckbox td.l-selected {
+    background-color: #F4A460;
+}
+
+.l-box-select .l-box-select-table td {
+    padding: 1px 5px 1px 5px;
+    text-align: left;
+    font-size: 12px;
+    height: 24px;
+}
+
+/* 下拉框 右下角调整大小图标 */
+.l-btn-nw-drop {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    width: 8px;
+    height: 8px;
+    background: url('../images/icon/icon-drop.gif') no-repeat 50% 50%;
+}
+
+/* -------------
+    * 复选框 *
+* ------------- */
+.l-checkbox-wrapper {
+    display: -moz-inline-stack;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    margin: 0 auto;
+    margin-right: 2px;
+    padding: 0;
+}
+
+a.l-checkbox {
+}
+
+a.l-checkbox::before {
+    cursor: pointer;
+    font-family: fontAwesome;
+    font-weight: normal;
+    font-size: 12px;
+    color: #FFF;
+    content: "\a0";
+    background-color: #FAFAFA;
+    border: 1px solid #C8C8C8;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 0;
+    display: inline-block;
+    text-align: center;
+    height: 14px;
+    line-height: 14px;
+    min-width: 14px;
+    margin-right: 1px;
+    position: relative;
+    top: -1px;
+}
+
+div.l-disabled a.l-checkbox {
+    /*nothing need to do*/
+}
+
+div.l-disabled a.l-checkbox::before{
+    cursor: pointer;
+    font-family: fontAwesome;
+    font-weight: normal;
+    font-size: 12px;
+    color: #FFF;
+    content: "\a0";
+    background-color: #DDD;
+    border: 1px solid #C8C8C8;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 0;
+    display: inline-block;
+    text-align: center;
+    height: 14px;
+    line-height: 14px;
+    min-width: 14px;
+    margin-right: 1px;
+    position: relative;
+    top: -1px;
+}
+
+
+div.l-disabled a.l-checkbox-checked {
+    /*nothing need to do*/
+}
+
+div.l-disabled a.l-checkbox-checked::before{
+    display: inline-block;
+    content: '\f00c';
+    color: #32A3CE;
+    background-color: #DDD;
+    border-color: #ADB8C0;
+}
+
+a.l-checkbox-checked {
+    /*nothing need to do*/
+}
+
+a.l-checkbox-checked::before{
+
+    display: inline-block;
+    content: '\f00c';
+    color: #32A3CE;
+    background-color: #F5F8FC;
+    border-color: #ADB8C0;
+
+}
+
+.l-over a.l-checkbox {
+    /*background-position: -13px 0px;*/
+}
+
+.l-over a.l-checkbox-checked {
+    /*background-position: -13px -13px;*/
+}
+
+/* -------------
+    * 单选框 *
+* ------------- */
+.l-radio-wrapper {
+    display: -moz-inline-stack;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    margin-right: 2px;
+}
+
+a.l-radio {
+   /*nothing need to do*/
+}
+
+a.l-radio::before{
+    cursor: pointer;
+    font-family: fontAwesome;
+    font-weight: normal;
+    font-size: 12px;
+    color: #FFF;
+    content: "\a0";
+    background-color: #FAFAFA;
+    border: 1px solid #C8C8C8;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 0;
+    display: inline-block;
+    text-align: center;
+    margin-right: 1px;
+    position: relative;
+    top: -1px;
+
+    border-radius: 100%;
+    font-size: 10px;
+    font-family: FontAwesome;
+    text-shadow: 0 0 1px #32A3CE;
+    line-height: 15px;
+    height: 14px;
+    min-width: 14px;
+}
+
+a.l-radio-checked {
+    /*background-position: 0 -13px;*/
+}
+
+a.l-radio-checked::before{
+    display: inline-block;
+    content: "\f111";
+    color: #32A3CE;
+    background-color: #F5F8FC;
+    border-color: #ADB8C0;
+}
+
+div.l-disabled a.l-radio::before {
+    background-color: #DDD !important;
+}
+
+div.l-disabled a.l-radio-checked::before {
+    display: inline-block;
+    content: "\f111";
+    color: #32A3CE;
+    background-color: #DDD;
+    border-color: #ADB8C0;
+}
+
+.l-checkbox-checked:hover::before,
+.l-radio-checked:hover::before,
+.l-checkbox:hover::before,
+.l-radio:hover::before{
+    border-color: #F59942 !important;
+}
+
+.l-over a.l-radio {
+    /*background-position: -13px 0px;*/
+}
+
+.l-over a.l-radio-checked {
+    /*background-position: -13px -13px;*/
+}
+
+/* -----------------------
+   *   日期控件 *
+* ----------------------- */
+.l-box-dateeditor {
+    position: absolute;
+    padding: 0px;
+    overflow: hidden;
+    border: 1px solid #A3C0E8;
+    background: white;
+    width: 200px;
+    margin-top: 1px;
+    z-index: 9999;
+}
+
+.l-box-dateeditor-absolute {
+    margin-top: 0px;
+}
+
+.l-box-dateeditor-header {
+    width: 100%;
+    height: 23px;
+    background: url(../images/controls/dateeditor-header-bg.gif) repeat-x -2px center;
+    text-align: center;
+    position: relative;
+    text-align: center;
+}
+
+.l-box-dateeditor-header-text {
+    margin: 0 auto;
+    color: #1542B3;
+    line-height: 23px;
+    font-weight: lighter;
+    text-align: center;
+}
+
+.l-box-dateeditor-header-text a {
+    color: #1542B3;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.l-box-dateeditor-header-btn {
+    top: 0;
+    width: 23px;
+    height: 23px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.l-box-dateeditor-header-btn-over {
+    background: url(../images/icon/bar-button-over.gif) no-repeat center;
+}
+
+.l-box-dateeditor-header-btn span {
+    width: 20px;
+    height: 20px;
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+}
+
+.l-box-dateeditor-header-prevmonth {
+    left: 24px;
+}
+
+.l-box-dateeditor-header-prevmonth span {
+    background: url(../images/dateeditor/icon-prev.gif) no-repeat center;
+}
+
+.l-box-dateeditor-header-nextmonth {
+    right: 24px;
+}
+
+.l-box-dateeditor-header-nextmonth span {
+    background: url(../images/dateeditor/icon-next.gif) no-repeat center;
+}
+
+.l-box-dateeditor-header-prevyear {
+    left: 4px;
+}
+
+.l-box-dateeditor-header-prevyear span {
+    background: url(../images/dateeditor/icon-first.gif) no-repeat center;
+}
+
+.l-box-dateeditor-header-nextyear {
+    right: 4px;
+}
+
+.l-box-dateeditor-header-nextyear span {
+    background: url(../images/dateeditor/icon-last.gif) no-repeat center;
+}
+
+.l-box-dateeditor-body {
+    border: 1px solid #A3C0E8;
+    border-left: none;
+    border-right: none;
+    text-align: center;
+    position: relative;
+}
+
+.l-box-dateeditor-body table {
+    margin: 0 auto;
+}
+
+.l-box-dateeditor-monthselector, .l-box-dateeditor-yearselector, .l-box-dateeditor-hourselector, .l-box-dateeditor-minuteselector {
+    background: white;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    display: none;
+    height: 100%;
+    overflow: hidden;
+}
+
+.l-box-dateeditor-minuteselector {
+    overflow: auto;
+}
+
+.l-box-dateeditor-monthselector li {
+    float: left;
+    width: 50px;
+    line-height: 20px;
+    height: 20px;
+    margin: 5px;
+    margin-top: 5px;
+    border: 1px solid #d3d3d3;
+    cursor: pointer;
+}
+
+.l-box-dateeditor-yearselector li {
+    float: left;
+    width: 50px;
+    line-height: 20px;
+    height: 20px;
+    margin: 5px;
+    margin-top: 5px;
+    border: 1px solid #d3d3d3;
+    cursor: pointer;
+}
+
+.l-box-dateeditor-hourselector li {
+    float: left;
+    width: 36px;
+    line-height: 17px;
+    height: 17px;
+    margin-left: 8px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    border: 1px solid #d3d3d3;
+    cursor: pointer;
+}
+
+.l-box-dateeditor-minuteselector li {
+    float: left;
+    width: 21px;
+    line-height: 18px;
+    height: 18px;
+    margin-left: 6px;
+    margin-bottom: 3px;
+    margin-top: 3px;
+    border: 1px solid #d3d3d3;
+    cursor: pointer;
+}
+
+.l-box-dateeditor-monthselector li:hover, .l-box-dateeditor-monthselector li.l-selected, .l-box-dateeditor-monthselector li.l-over, .l-box-dateeditor-yearselector li:hover, .l-box-dateeditor-yearselector li.l-selected, .l-box-dateeditor-yearselector li.l-over, .l-box-dateeditor-hourselector li:hover, .l-box-dateeditor-hourselector li.l-selected, .l-box-dateeditor-hourselector li.l-over, .l-box-dateeditor-minuteselector li:hover, .l-box-dateeditor-minuteselector li.l-selected, .l-box-dateeditor-minuteselector li.l-over {
+    background-color: #FFE7A2;
+    border: solid 1px #FFBD69;
+}
+
+.l-box-dateeditor-body thead td {
+    border-bottom: 1px solid #d3d3d3;
+}
+
+.l-box-dateeditor-body td {
+    width: 30px;
+    height: 19px;
+    line-height: 19px;
+    font-size: 12px;
+}
+
+.l-box-dateeditor-body tbody td {
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+.l-box-dateeditor-body tbody td.l-box-dateeditor-today {
+    background-color: #FFBD69;
+}
+
+.l-box-dateeditor-body tbody td.l-box-dateeditor-over, .l-box-dateeditor-body tbody td.l-box-dateeditor-selected {
+    background-color: #FFE7A2;
+}
+
+.l-box-dateeditor-body tbody td.l-box-dateeditor-holiday {
+    color: #C00000;
+}
+
+.l-box-dateeditor-body tbody td.l-box-dateeditor-out {
+    color: #888888;
+}
+
+.l-box-dateeditor-toolbar {
+    padding-left: 10px;
+    width: 100%;
+    height: 28px;
+    background: url(../images/controls/dateeditor-bar-bg.gif) repeat-x 1px center;
+    text-align: center;
+    position: relative;
+}
+
+.l-box-dateeditor-time {
+    width: 30px;
+    display: none;
+    height: 18px;
+    margin-top: 4px;
+    float: left;
+    color: #333;
+}
+
+.l-box-dateeditor-time a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #333;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+/*.l-box-dateeditor-toolbar .l-button {width:50px ; height:19px; line-height:19px;}*/
+.l-box-dateeditor-toolbar .l-button {
+    width: 35px;
+    height: 19px;
+    line-height: 19px;
+    background: url("../images/var1_bnico_blue.png") repeat-x;
+    background-position: 0px -24px
+}
+
+.l-box-dateeditor-toolbar .l-button-today {
+    float: right;
+    margin-right: 5px;
+    margin-top: 2px;
+}
+
+.l-box-dateeditor-toolbar .l-button-clear {
+    float: right;
+    margin-right: 5px;
+    margin-top: 2px;
+}
+
+.l-box-dateeditor-toolbar .l-button-close {
+    float: right;
+    margin-right: 10px;
+    margin-top: 2px;
+}
+
+/* -----------------------
+   *   验证 *
+* ----------------------- */
+.l-verify-tip {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    display: block;
+}
+
+.l-verify-tip-corner {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    background: url('../images/form/verify-corner.gif') no-repeat;
+    width: 8px;
+    line-height: 9px;
+    height: 9px;
+    overflow: hidden;
+    top: 5px;
+    left: 0px;
+    z-index: 10001;
+}
+
+.l-verify-tip-content {
+    margin: 0;
+    position: absolute;
+    left: 7px;
+    top: 0px;
+    border: 1px solid #FFC340;
+    background: #FFFCC7;
+    z-index: 10000;
+    padding: 4px 8px;
+    width: 100px;
+    font-size: 12px;
+}
+
+.l-exclamation {
+    width: 16px;
+    height: 16px;
+    overflow: hidden;
+    display: block;
+    background: url('../images/common/exclamation.gif') no-repeat;
+}
+
+.l-panle-bg {
+    background: url('../images/common/panel-bg.gif') repeat;
+}
+
+.l-form-wrap {
+    border: 1px solid #88b1e5;
+}

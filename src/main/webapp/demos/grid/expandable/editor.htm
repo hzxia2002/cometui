@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <link href="../../../js/jui/skins/Aqua/css/jui-all.css" rel="stylesheet"
+          type="text/css" />
+    <script src="../../../js/jquery/jquery-1.7.2.js" type="text/javascript"></script>
+    <script src="../../../js/json2.js" type="text/javascript"></script>
+    <!--<script src="../../../js/jui/js/core/base.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceDialog.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceTextBox.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceCheckBox.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceComboBox.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceGrid.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceDateEditor.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceSpinner.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceMenu.js" type="text/javascript"></script>-->
+    <script src="../../../js/jui/js/jui-all.js" type="text/javascript"></script>
+    <script src="../EmployeeData.js" type="text/javascript"></script>
+    <script src="../DepartmentData.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        //扩展一个 多行文本框 的编辑器
+        $.juiceDefaults.Grid.editors['textarea'] = {
+            create: function (container, editParm)
+            {
+                var input = $("<textarea />");
+                container.append(input);
+                return input;
+            },
+            getValue: function (input, editParm)
+            {
+                return input.val();
+            },
+            setValue: function (input, value, editParm)
+            {
+                input.val(value);
+            },
+            resize: function (input, width, height, editParm)
+            {
+                var column = editParm.column;
+                if (column.editor.width) input.width(column.editor.width);
+                else input.width(width);
+                if (column.editor.height) input.height(column.editor.height);
+                else input.height(height);
+            }
+        };
+
+        var DepartmentList = DepartmentData.Rows;
+        $(f_initGrid);
+        function f_initGrid()
+        {
+            $.jui.parse();
+            window['g'] = $.jui.get("maingrid");
+//            window['g'] = $("#maingrid").juiceGrid({
+//                        columns: [
+//                            { display: '主键', name: 'ID', width: 50, type: 'int' },
+//                            { display: '名字', name: 'RealName', width: 90 },
+//                            { display: '地址', name: 'Address', editor: { type: 'textarea',height:80 }, align: 'left', width: 300 }
+//                        ],
+//                        enabledEdit: true, isScroll: false,
+//                        data: EmployeeData,
+//                        width: '100%'
+//                    });
+        }
+    </script>
+</head>
+<body style="padding: 10px">
+<div id="maingrid" style="margin-top: 20px" data="EmployeeData" enabledEdit="true" isScroll="false" width="100%" class="jui-grid">
+    <div elementType="columns">
+        <div display="主键" name="ID" width="50" type="int"></div>
+        <div display="名字" name="RealName" width="90" type="int"></div>
+        <div display="地址" name="Address" width="300" align="left">
+            <input elementType="c" class="jui-textarea" height="80" />
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../../../js/jui/skins/Aqua/css/jui-all.css" rel="stylesheet" type="text/css"/>
+    <script src="../../../js/jquery/jquery-1.7.2.js" type="text/javascript"></script>
+    <script src="../../../js/json2.js" type="text/javascript"></script>
+    <!--<script src="../../../js/jui/js/core/base.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceDialog.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceTextBox.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceCheckBox.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceComboBox.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceGrid.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceDateEditor.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceSpinner.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceMenu.js" type="text/javascript"></script>-->
+    <script src="../../../js/jui/js/jui-all.js" type="text/javascript"></script>
+    <script src="../EmployeeData.js" type="text/javascript"></script>
+    <script src="../DepartmentData.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        var DepartmentList = DepartmentData.Rows;
+        var sexData = [
+            { Sex:1, text:'男' },
+            { Sex:2, text:'女'}
+        ];
+        $(function(){
+            $.jui.parse();
+        });
+
+        //只允许编辑前3行
+        function f_onBeforeEdit(e) {
+            if (e.rowindex <= 2) return true;
+            return false;
+        }
+        //限制年龄
+        function f_onBeforeSubmitEdit(e) {
+            if (e.columnname == "Age") {
+                if (e.value < 20 || e.value > 30) return false;
+            }
+            return true;
+        }
+        //编辑后事件 
+        function f_onAfterEdit(e) {
+            if (e.column.name == "Age") {
+                alert(e.value);
+            }
+        }
+        function getSelected() {
+            var manager = $("#maingrid").juiceGetGridManager();
+            var row = manager.getSelectedRow();
+            if (!row) {
+                alert('请选择行');
+                return;
+            }
+            alert(JSON.stringify(row));
+        }
+
+        function getData() {
+//            var grid = $("#maingrid").juiceGetGridManager();
+            var grid = $.jui.get("maingrid");
+            var data = grid.getData();
+            alert(JSON.stringify(data));
+        }
+
+        function sexRender(item) {
+            if (parseInt(item.Sex) == 1)
+                return '男';
+            return '女';
+        }
+
+        function deptRender(item) {
+            for (var i = 0; i <
+                    DepartmentList.length; i++) {
+                if (DepartmentList[i]
+                        ['DepartmentID'] == item.DepartmentID)
+                    return DepartmentList
+                            [i]['DepartmentName']
+            }
+            return item.DepartmentName;
+        }
+    </script>
+</head>
+<body style="padding:10px">
+<a class="l-button" style="width:120px;" onclick="getSelected()">获取选中的值(选择行)</a>
+<a class="l-button" style="width:120px; margin-left:10px;" onclick="getData()">获取当前的值</a>
+
+<div id="maingrid" style="margin-top:20px" data="EmployeeData" width="100%" enabledEdit="true" isScroll="false" enabledEdit="true"
+     onBeforeEdit="f_onBeforeEdit" onBeforeSubmitEdit="f_onBeforeSubmitEdit" onAfterEdit="f_onAfterEdit" title="数据表格" class="jui-grid">
+    <div elementType="columns">
+        <div name="ID" width="50" type="int" frozen="true" display=" 主键"></div>
+        <div name="RealName" width="10%" type="" display=" 名字" allowBlank="false">
+            <input elementType="editor" class="jui-text"/>
+        </div>
+        <div name="Sex" width="50" type="int" display="性别" render="sexRender">
+            <input elementType="editor" class="jui-select" data="sexData" valueColumnName='Sex'
+                   displayColumnName='text'/>
+        </div>
+        <div name="Age" width="50" type="int" display="年龄">
+            <input elementType="editor" class="jui-int"/>
+        </div>
+        <div display="入职日期" name="IncomeDay" type="date" width="100">
+            <input elementType="editor" class="jui-date"/>
+        </div>
+        <div name="DepartmentID" width="120" display="部门" render="deptRender">
+            <input class="jui-select" data="DepartmentList" valueColumnName='DepartmentID'
+                   displayColumnName='DepartmentName'/>
+        </div>
+        <div name="Address" width="300" align="left" display=" 地址">
+            <input elementType="editor" class="jui-text"/>
+        </div>
+    </div>
+
+
+</div>
+<br/>
+<br/>
+
+<p>1,编辑前事件 只允许编辑前3行</p>
+
+<p>2,编辑提交前事件 限制年龄 20 -30</p>
+
+<p>3,编辑后事件 打印年龄</p>
+<br/>
+
+<div style="display:none;">
+    <!-- g data total ttt -->
+</div>
+</body>
+</html>

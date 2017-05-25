@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <link href="../../js/jui/skins/Aqua/css/jui-all.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+    </style>
+    <script src="../../js/jquery/jquery-1.7.2.js" type="text/javascript"></script>
+    <!--<script src="../../js/jui/js/core/base.js" type="text/javascript"></script>-->
+    <!--<script src="../../js/jui/js/plugins/juiceCheckBox.js" type="text/javascript"></script>-->
+    <!--<script src="../../js/jui/js/plugins/juiceResizable.js" type="text/javascript"></script>-->
+    <!--<script src="../../js/jui/js/plugins/juiceComboBox.js" type="text/javascript"></script>-->
+    <script src="../../js/jui/js/jui-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        $(function ()
+        {
+
+            $("#txtPro").juiceComboBox({
+//                url:"data/province.json" , isMultiSelect: false
+            });
+            $("#txtCity").juiceComboBox({
+//                isMultiSelect: true, isShowCheckBox: true
+            });
+
+        });
+
+
+        function select(){
+            var value = this.getValue();
+            if(value=="1"){
+                $("#txtCity").juiceGetComboBoxManager().setUrl("../comboBox/data/zhejiang.json") ;
+            }else{
+                $("#txtCity").juiceGetComboBoxManager().setUrl("../comboBox/data/jiangsu.json") ;
+            }
+        }
+
+        function selectByParent(){
+            var value =  $("#txtPro").juiceGetComboBoxManager().getValue();
+            if(value=="1"){
+                this.setUrl("../comboBox/data/zhejiang.json") ;
+            }else{
+                this.setUrl("../comboBox/data/jiangsu.json") ;
+            }
+
+        }
+    </script>
+</head>
+<body style="padding:10px">
+<h3>联动效果</h3>
+<input type="text" id="txtPro" onSelected="select" url="../comboBox/data/province.json" isMultiSelect="false"/>
+<br />
+<input type="text" id="txtCity" isMultiSelect="true" isShowCheckBox="true" />
+<br />                           
+
+<div style="display:none;">
+
+</div>
+</body>
+</html>

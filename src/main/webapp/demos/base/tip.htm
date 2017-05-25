@@ -1,0 +1,84 @@
+﻿ 
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <link href="../../js/jui/skins/Aqua/css/jui-all.css" rel="stylesheet" type="text/css" /> 
+    <script src="../../js/jquery/jquery-1.7.2.js" type="text/javascript"></script>
+    <!--<script src="../../js/jui/js/core/base.js" type="text/javascript"></script>-->
+    <!--<script src="../../js/jui/js/plugins/juiceTip.js" type="text/javascript"></script>-->
+    <script src="../../js/jui/js/jui-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var i = 0;
+        $(function ()
+        {
+            $("#message .l-log-content-tag").juiceTip({ content: '提示', width: 50 });
+
+            //这里是在鼠标经过时才显示，没有传入参数，或者传入的参数列表有 auto:true这个参数/值
+            $("#message1").juiceTip();
+
+            //这里调用一次就会显示一下
+            $("#message2").juiceTip({ content: $("#message1").html() });
+        });
+    </script>
+    <style type="text/css">
+        .l-verify-tip{ background:#f1f1f1;}
+        p.l-log-content
+        {
+            margin: 0;
+            padding: 0;
+            padding-left: 20px;
+            line-height: 40px;
+            height: 40px;
+            font-size: 12px;
+        }
+        span.l-log-content-tag
+        {
+            color: #008000;
+            margin-right: 2px;
+            font-weight: bold;
+        }
+        h2.l-title
+        {
+            margin: 7px;
+            padding: 0;
+            font-size: 17px;
+            font-weight: bold;
+        }
+        h3.l-title
+        {
+            margin: 4px;
+            padding: 0;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .message{ position:absolute; left:100px; top:100px; background:#F1F1F1; border:1px solid #DEDEDE; padding:10px;}
+    </style>
+</head>
+<body style="padding: 10px">
+    <div id="message">
+        <p class="l-log-content">
+            <span class="l-log-content-tag">[需求]</span>增加addRows方法,一次性增加多行,参数为行数据数组</p>
+        <p class="l-log-content">
+            <span>[需求]</span>增加了表格列初始化隐藏的属性hide<span class="l-log-content-tag"></span></p>
+        <!--<p class="l-log-content">-->
+            <!--<span class="l-log-content-tag">[BUG]</span>解决表格返回的数据为空时页面不反应的问题</p>-->
+        <!--<p class="l-log-content">-->
+            <!--<span class="l-log-content-tag">[BUG]</span>解决表格隐藏列以后排序,依旧会把依把已经隐藏的数据显示出来的问题</p>-->
+        <!--<p class="l-log-content">-->
+            <!--<span class="l-log-content-tag">[BUG]</span>解决在表头右键会出现【显示/隐藏列】，但是在表头点击 【显示/隐藏列】-->
+            <!--不消失的问题</p>-->
+        <!--<p class="l-log-content">-->
+            <!--<span class="l-log-content-tag">[BUG]</span>解决在表格的最后一列点击鼠标右键显示【显示/隐藏列】，【显示/隐藏列】错位的问题</p>-->
+    </div>
+    <div id="message1" class="message" title="这里是title..." >
+        这里是内容。。。
+        这个元素使用juiceTip，不传入任何参数，将会利用这个Dom元素的title作为juiceTip的content
+    </div>
+
+    <div id="message2" style="left:200px; top:300px" class="message" title="这里是title..." >
+        这里是内容2222。。。
+    </div>
+  </body>
+</html>

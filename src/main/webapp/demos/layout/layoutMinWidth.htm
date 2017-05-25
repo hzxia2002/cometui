@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<link href="../../js/jui/skins/Aqua/css/jui-all.css" rel="stylesheet" type="text/css" />
+<script src="../../js/jquery/jquery-1.7.2.js" type="text/javascript"></script>
+<script src="../../js/jui/js/core/base.js" type="text/javascript"></script>
+<script src="../../js/jui/js/plugins/juiceLayout.js" type="text/javascript"></script>
+<script src="../../js/jui/js/plugins/juiceTree.js" type="text/javascript"></script>
+<script src="../../js/jui/js/plugins/juiceAccordion.js" type="text/javascript"></script>
+<script src="../../js/jui/js/plugins/juiceMenu.js" type="text/javascript"></script>
+<script src="../../js/jui/js/plugins/juiceMenuBar.js" type="text/javascript"></script>
+    <!--<script src="../../js/jui/js/jui-all.js" type="text/javascript"></script>-->
+
+<script type="text/javascript">
+    $(function ()
+    {
+        $("#layout1").juiceLayout({
+            leftWidth:200,
+            rightWidth:160,
+            topHeight:50
+        });
+
+        var myaccount = '../../js/jui/skins/icons/myaccount.gif';
+        var memeber = '../../js/jui/skins/icons/memeber.gif';
+        var archives = '../../js/jui/skins/icons/archives.gif';
+        $("#tree1").juiceTree({
+            data: [
+                { text: '节点1', icon: myaccount, children: [
+                    { text: '节点1.1', icon: archives },
+                    { text: '节点1.2', icon: archives },
+                    { text: '节点1.3', icon: myaccount, children: [
+                        { text: '节点1.3.1', icon: archives },
+                        { text: '节点1.3.2', icon: archives } ,
+                        { text: '节点1.3.1', icon: archives },
+                        { text: '节点1.3.2', icon: archives } ,
+                        { text: '节点1.3.1', icon: archives },
+                        { text: '节点1.3.2', icon: archives } ,
+                        { text: '节点1.3.1', icon: myaccount, children: [
+                        { text: '节点1.3.2', icon: archives } ,
+                        { text: '节点1.3.1', icon: archives },
+                        { text: '节点1.3.2', icon: archives }  ,
+                        { text: '节点1.3.1', icon: archives },
+                        { text: '节点1.3.2', icon: archives } ,
+                        { text: '节点1.3.1', icon: archives }]},
+                        { text: '节点1.3.2', icon: archives } ,
+                        { text: '节点1.3.1', icon: archives },
+                        { text: '节点1.3.2', icon: archives }  ,
+                        { text: '节点1.3.1', icon: archives },
+                        { text: '节点1.3.2', icon: archives } ,
+                        { text: '节点1.3.1', icon: archives },
+                        { text: '节点1.3.2', icon: archives } ,
+                        { text: '节点1.3.1', icon: archives },
+                        { text: '节点1.3.2', icon: archives } ,
+                        { text: '节点1.3.1', icon: archives },
+                        { text: '节点1.3.2', icon: archives }
+                    ]
+                    },
+                    { text: '节点1.4', icon: archives }
+                ]
+                },
+                { text: '节点2', icon: memeber },
+                { text: '节点3', icon: memeber },
+                { text: '节点4', icon: memeber }
+            ]
+        });
+
+        var height = $(".l-layout-center").height();
+        $("#treeDiv").css({height: height - 24})
+        $("#accordion1").juiceAccordion({height:height - 24});
+
+        // 菜单定义
+        var menu1 = { width: 120, items:
+                [
+                    { text: '保存', click: itemclick },
+                    { text: '列存为', click: itemclick },
+                    { line: true },
+                    { text: '关闭', click: itemclick }
+                ]
+        };
+
+        var menu2 = { width: 120, items:
+                [
+                    {
+                        text: '文件', children:
+                            [
+                                { text: 'Excel', click: itemclick },
+                                { text: 'Word', click: itemclick },
+                                { text: 'PDF', click: itemclick },
+                                { text: 'TXT', click: itemclick },
+                                { line: true },
+                                { text: 'XML', click: itemclick }
+                            ]
+                    }
+                ]
+        };
+        function itemclick(item)
+        {
+            alert(item.text);
+        }
+
+        $("#topmenu").juiceMenuBar({ items: [
+            { text: '文件', menu: menu1 },
+            { text: '导出', menu: menu2 }
+        ]
+        });
+    });
+</script>
+<style type="text/css">
+body{ padding:10px; margin:0;}
+#layout1{ width:100%;margin:0; padding:0;}
+#accordion1{ width:160px;overflow-x:auto;overflow-y:auto;}
+h4{ margin:20px;}
+.l-tree .l-tree-icon-none img{width:16px; height:16px; margin:3px;}
+</style>
+</head>
+<body style="padding:2px">
+    <div id="layout1">
+        <div position="left" title="导航区域" style="height: 100%;width: 100%">
+            <div id="treeDiv" style="overflow-x:auto; overflow-y:auto;height:100%;width: 100%">
+            <ul id="tree1" >
+            </ul>
+            </div>
+        </div>
+        <div position="center" title="主要操作区域">
+        <h4>$("#layout1").juiceLayout(); </h4>
+
+        <input id="show" type="button" value="默认为固定layout的高度百分一百"/>
+        </div>
+        <div position="right">
+            <div id="accordion1">
+                <div title="功能列表">
+                    <ul>
+                        <li><a href="javascript:void(0)" onclick="javascript:alert('列表一')">列表一</a></li>
+                        <li>列表二</li>
+                        <li>列表三</li>
+                        <li>列表四</li>
+                        <li>列表五</li>
+                        <li>列表6</li>
+                        <li>列表7</li>
+                        <li>列表8</li>
+                        <li>列表9</li>
+                        <li>列表10</li>
+                        <li>列表11</li>
+                        <li>列表12</li>
+                        <li>列表13</li>
+                        <li>列表14</li>
+                        <li>列表15</li>
+                        <li>列表16</li>
+                        <li>列表17</li>
+                        <li>列表18</li>
+                        <li>列表19</li>
+                        <li>列表20</li>
+                        <li>列表21</li>
+                        <li>列表22</li>
+                        <li>列表23</li>
+                        <li>列表24</li>
+                        <li>列表25</li>
+                    </ul>
+                </div>
+                <div title="列表">
+                    <ul>
+                        <li>列表一</li>
+                        <li>列表二</li>
+                        <li>列表三</li>
+                        <li>列表四</li>
+                        <li>列表五</li>
+                    </ul>
+                </div>
+                <div title="其他" style="padding:10px">
+                    其他内容
+                </div>
+            </div>
+        </div>
+        <div position="top">
+            <div id="topmenu"></div>
+        </div>
+        <div position="bottom">底部区域</div>
+    </div>
+</div>
+</body>
+</html>

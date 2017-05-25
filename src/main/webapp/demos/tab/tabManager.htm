@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <link href="../../js/jui/skins/Aqua/css/jui-all.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/jquery/jquery-1.7.2.js" type="text/javascript"></script>
+    <!--<script src="../../js/jui/js/core/base.js" type="text/javascript"></script>-->
+    <!--<script src="../../js/jui/js/plugins/juiceTab.js" type="text/javascript"></script>-->
+    <!--<script src="../../js/jui/js/plugins/juiceDialog.js" type="text/javascript"></script>-->
+    <!--<script src="../../js/jui/js/plugins/juiceMenu.js" type="text/javascript"></script>-->
+    <!--<script src="../../js/jui/js/plugins/juiceDrag.js" type="text/javascript"></script>-->
+    <script src="../../js/jui/js/jui-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var navtab = null;
+        $(function ()
+        {
+            $("#tab1").juiceTab();
+            navtab = $("#tab1").juiceGetTabManager();
+        });
+        var alert = function (t)
+        {
+            $.juiceDialog.warn(t.toLocaleString());
+        }
+        function f_click(type)
+        {
+            switch (type)
+            {
+                case "moveToPrevTabItem":
+                    navtab.moveToPrevTabItem();
+                    break;
+                case "moveToNextTabItem": 
+                    navtab.moveToNextTabItem();
+                    break;
+                case "moveToLastTabItem":
+                    navtab.moveToLastTabItem();
+                    break;
+                case "getTabItemCount":
+                    alert(navtab.getTabItemCount());
+                    break;
+                case "getSelectedTabItemID":
+                    alert(navtab.getSelectedTabItemID());
+                    break;
+                case "removeSelectedTabItem":
+                    navtab.removeSelectedTabItem();
+                    break;
+                case "removeSelectedTabItem":
+                    navtab.removeSelectedTabItem();
+                    break;
+                case "removeSelectedTabItem":
+                    navtab.removeSelectedTabItem();
+                    break;
+                case "overrideSelectedTabItem":
+                    $.juiceDialog.prompt('请输入网址', 'http://www.baidu.com', function (yes, value)
+                    {
+                        if (yes) navtab.overrideSelectedTabItem({ url: value });
+                    });
+                    break;
+                case "selectTabItem":
+                    $.juiceDialog.prompt('请输入tabid', '', function (yes, value)
+                    {
+                        if (yes) navtab.selectTabItem(value);
+                    });
+                    break;
+                case "isTabItemExist":
+                    $.juiceDialog.prompt('请输入tabid', '', function (yes, value)
+                    { 
+                        if (yes) alert(navtab.isTabItemExist(value));
+                    });
+                    break;
+                case "addTabItem":
+                    $.juiceDialog.prompt('请输入网址', 'http://www.baidu.com', function (yes, value)
+                    {
+                        if (yes) navtab.addTabItem({ url: value });
+                    });
+                    break;
+                case "removeTabItem":
+                    $.juiceDialog.prompt('请输入tabid', '', function (yes, value)
+                    {
+                        if (yes) navtab.removeTabItem(value);
+                    });
+                    break;
+                case "removeOther":
+                    $.juiceDialog.prompt('请输入tabid', '', function (yes, value)
+                    {
+                        if (yes) navtab.removeOther(value);
+                    });
+                    break;
+                case "reload":
+                    navtab.reload(navtab.getSelectedTabItemID());
+                    break;
+                case "removeAll":
+                    navtab.removeAll();
+                    break;
+            }
+        }
+    </script>
+    <style type="text/css">
+        body{ font-size:11px;}
+      
+    </style>
+</head>
+<body style="padding:10px">
+
+        <a class="l-button" onclick="f_click('getTabItemCount')" > getTabItemCount</a>
+        <a class="l-button" onclick="f_click('getSelectedTabItemID')">getSelectedTabItemID</a>
+        <a class="l-button" onclick="f_click('removeSelectedTabItem')"> removeSelectedTabItem</a>
+        <a class="l-button" onclick="f_click('overrideSelectedTabItem')"> overrideSelectedTabItem</a>
+        <a class="l-button" onclick="f_click('selectTabItem')" > selectTabItem</a>
+         
+        <a class="l-button" onclick="f_click('isTabItemExist')"> isTabItemExist</a>
+        <a class="l-button" onclick="f_click('addTabItem')"> addTabItem</a>
+        <a class="l-button" onclick="f_click('removeTabItem')"> removeTabItem</a>
+        <a class="l-button" onclick="f_click('removeOther')"> removeOther</a>
+        <a class="l-button" onclick="f_click('reload')" > reload</a>
+        <a class="l-button" onclick="f_click('removeAll')" > removeAll</a>
+                <br /> <br /> 
+        <div id="tab1" style="width: 600px;overflow:hidden; border:1px solid #A3C0E8; "> 
+            <div title="首页" style="height:300px">
+                <p>用法 : $('#tab1').juiceTab() ; </p>
+            </div>
+            <div title="说明" style="height:300px">
+               <p>今天开始jquery的一些实用的插件. 来用于我们的项目.</p>
+            </div>
+            <div title="联系我们" style="height:300px">
+              <p> come: www.jui.com    
+              blog : leoxie2011.cnblog.com</p>
+            </div>
+        </div>
+
+        <div style="display:none">
+        
+        </div>
+</body>
+</html>

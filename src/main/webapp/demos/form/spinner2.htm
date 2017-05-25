@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title> 
+    <link href="../../js/jui/skins/Aqua/css/jui-all.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/jquery/jquery-1.7.2.js" type="text/javascript"></script>
+    <script src="../../js/jui/js/core/base.js" type="text/javascript"></script>
+    <script src="../../js/jui/js/plugins/juiceSpinner.js" type="text/javascript"></script>
+    <!-- // <script src="../../js/jui/js/jui-all.js" type="text/javascript"></script> -->
+    <script type="text/javascript">
+        var manager;
+        $(function ()
+        {
+            manager = $("#r").juiceSpinner({ disabled: true });
+
+            $("#btnSet").bind('click', function ()
+            {
+                manager.setValue(44);
+            });
+            $("#btnGet").bind('click', function ()
+            {
+                alert(manager.getValue());
+            });
+            $("#btnDisabled").bind('click', function ()
+            {
+                manager.setDisabled();
+            });
+            $("#btnEnabled").bind('click', function ()
+            {
+                manager.setEnabled();
+            });
+        }); 
+    </script>
+
+</head>
+<body style="padding:10px">
+<input type="text" id="r" />
+        <a  class="l-button" id="btnSet" >设置值</a>
+        <a  class="l-button" id="btnGet"  >获取值</a>
+        <a  class="l-button" id="btnDisabled">设置只读</a>　
+        <a  class="l-button" id="btnEnabled">取消只读</a>
+         <div style="display:none;">
+</div>
+</body>
+</html>

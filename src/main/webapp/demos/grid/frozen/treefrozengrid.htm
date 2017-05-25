@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <link href="../../../js/jui/skins/Aqua/css/jui-all.css" rel="stylesheet" type="text/css" />
+    <script src="../../../js/jquery/jquery-1.7.2.js" type="text/javascript"></script>
+    <!--<script src="../../../js/jui/js/core/base.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceGrid.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceMenu.js" type="text/javascript"></script>-->
+    <!--<script src="../../../js/jui/js/plugins/juiceMenu.js" type="text/javascript"></script>-->
+    <script src="../../../js/jui/js/jui-all.js" type="text/javascript"></script>
+    <script src="../TreeDeptData.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var treegrid;
+        $(function ()
+        {
+            $.jui.parse();
+            window['g'] =
+            treegrid = $.jui.get("maingrid")
+//            treegrid = $("#maingrid").juiceGrid({
+//                columns: [
+//                    { display: '部门名', name: 'name', width: 250, align: 'left', frozen: true },
+//                { display: '部门标示', name: 'id', width: 150, type: 'int', align: 'left' },
+//                { display: '部门标示2', name: 'id', width: 150, type: 'int', align: 'left' },
+//                { display: '部门标示3', name: 'id', width: 150, type: 'int', align: 'left' },
+//                { display: '部门标示4', name: 'id', width: 150, type: 'int', align: 'left' },
+//                { display: '部门描述', name: 'remark', width: 150, align: 'left' }
+//                ],
+//               pageSizeOptions: [5, 10, 15, 20], checkbox:true, data: TreeDeptData,
+//                height: '97%', width: '100%',rownumbers: true,  alternatingRow: false,
+//               title:'头部',
+//                tree: { columnName: 'name' }
+//            });
+        }); 
+    </script>
+</head>
+<body  style="padding:4px">  
+
+    <div id="maingrid" data="TreeDeptData" checkbox="true" pageSizeOptions="[5, 10, 15, 20]"rownumbers="true"
+            height="97%" width="100%"  alternatingRow="false" title="头部" tree="{ columnName: 'name' }" class="jui-grid">
+          <div elementType="columns">
+               <div display="部门名" name="name"  width="250" align="left" ></div>
+               <div display="部门标示" name="id"  width="150"   type="int" align="left"></div>
+               <div display="部门标示2" name="id"  width="150"  type="int" align="left" ></div>
+               <div display="部门标示3" name="id"  width="150"  type="int" align="left" ></div>
+               <div display="部门标示4" name="id"  width="150"  type="int" align="left" ></div>
+               <div display="部门描述" name="remark"  width="150" align="left" ></div>
+               </div>
+           </div>
+    </div>
+<div>
+
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+[
+                { "text": "节点1", "icon": "../../js/jui/skins/icons/myaccount.gif", "isLeaf":false,"children": [
+                    { "text": "节点1.1", "icon": "../../js/jui/skins/icons/archives.gif" },
+                    { "text": "节点1.2", "icon": "../../js/jui/skins/icons/archives.gif" },
+                    { "text": "节点1.3", "icon": "../../js/jui/skins/icons/myaccount.gif", "children": [
+                         { "text": "节点1.3.1", "icon": "../../js/jui/skins/icons/archives.gif" },
+                         { "text": "节点1.3.2", "icon": "../../js/jui/skins/icons/archives.gif" }
+                    ]
+                    },
+                    { "text": "节点1.4", "icon": "../../js/jui/skins/icons/archives.gif" }
+                 ]
+                },
+                { "text": "节点2", "icon": "../../js/jui/skins/icons/memeber.gif" },
+                { "text": "节点3", "icon": "../../js/jui/skins/icons/memeber.gif" },
+                { "text": "节点4", "icon": "../../js/jui/skins/icons/memeber.gif" }
+]

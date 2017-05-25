@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="juice" default="release">
+    <delete dir="${build.dir}/${doc.dir}"></delete>
+    <mkdir dir="${build.dir}/${doc.dir}"/>
+    <!--<java jar="${jsdoc.lib.dir}/jsrun.jar" fork="true">-->
+    <!--<arg value="${jsdoc.lib.dir}/app/run.js"/>-->
+    <!--<arg value="-a"/>-->
+    <!--&lt;!&ndash; the path of the jsdoc templates&ndash;&gt;-->
+    <!--<arg value="-t=${jsdoc.lib.dir}/templates/jsdoc"/>-->
+    <!--&lt;!&ndash; the source path of the js &ndash;&gt;-->
+    <!--<arg value="${js.dir}/jui/js/plugins"/>-->
+    <!--&lt;!&ndash; the output path of the generated jsdoc &ndash;&gt;-->
+    <!--<arg value="-d=${build.dir}/${doc.dir}" />-->
+    <!--</java>-->
+
+    <echo message="concat the js files"/>
+    <property name="components_js" value="
+                                juiceDrag.js
+                                juiceResizable.js
+                                juiceAccordion.js
+                                juiceTree.js
+                                juiceButton.js
+                                 juiceCheckBox.js
+                                 juiceComboBox.js
+                                 juiceTextBox.js
+                                 juiceRadio.js
+                                 juiceDateEditor.js
+                                 juiceDialog.js
+                                 juiceEasyTab.js
+                                 juiceFieldSet.js
+                                 juiceFilter.js
+                                 juiceNumberBox.js
+                                 juiceSpinner.js
+                                 juiceTip.js
+                                 juiceWindow.js
+                                 juiceToolBar.js
+                                 juiceTab.js
+                                 juiceMessageBox.js
+                                 juiceMenuBar.js
+                                 juiceMenu.js
+                                 juiceGrid.js
+                                 juiceForm.js
+                                 "/>
+    <concat destFile="${js.dir}/jui/js/jui-all.js">
+        <filelist dir="${js.dir}/jui/js/core" files="base.js"></filelist>
+        <filelist dir="${plugins.dir}" files="${components_js}"></filelist>
+        <!--<fileset dir="${plugins.dir}" includes="*.js">-->
+        <!--<patternset excludes="${components_js}"></patternset>-->
+        <!--</fileset>-->
+    </concat>
+
+    <apply executable="java" parallel="false" failonerror="true" dest="${js.dir}/" append="false" force="true" >
+        <!--单个文件压缩-->
+        <fileset dir="${js.dir}/">
+            <include name="*.js" />
+        </fileset>
+
+        <!--多个子目录压缩-->
+        <fileset dir="${js.dir}/" includes="**/*.js"/>
+        <!-- 以下写法错误，dir和dest(java命令执行的路径)相同
+         <fileset dir="${src.dir}/js1/" includes="*.js"/>
+.            -->
+        <arg line="-jar" />
+        <arg path="${jsdoc.lib.dir}/yui/yuicompressor-2.4.2.jar" />
+        <arg line="--charset" />
+        <arg line="UTF-8" />
+        <srcfile />
+        <arg line="-o" />
+        <mapper type="glob" from="*.js" to="*.min.js" />
+        <targetfile />
+        <!--只压缩去掉空格，不混淆-->
+    </apply>
+
+
+</project>
